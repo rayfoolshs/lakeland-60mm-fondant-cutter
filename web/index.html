@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/web/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lakeland Cutter Studio</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three.module.js",
+        "three/addons/": "./vendor/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <main id="viewer">
+      <canvas id="scene"></canvas>
+      <div id="hud">
+        <div class="hud-card">
+          <div class="eyebrow">Print orientation</div>
+          <div class="hud-title">Flange on bed &middot; logo faces up</div>
+        </div>
+        <div class="hud-help">Drag to orbit &middot; scroll to zoom &middot; right-drag to pan</div>
+        <div class="hud-meta" id="hud-meta">60 mm cut &middot; 3-level emboss</div>
+      </div>
+      <div id="loading" class="loading" aria-live="polite">
+        <div class="spinner"></div>
+        <div id="loading-text">Building default model&hellip;</div>
+      </div>
+    </main>
+
+    <aside id="panel">
+      <header class="panel-header">
+        <div>
+          <div class="eyebrow">Lakeland SHS</div>
+          <h1>Cutter Studio</h1>
+          <p class="subtitle">60 mm fondant cutter / embosser</p>
+        </div>
+        <span class="badge">P1S</span>
+      </header>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Model</h2>
+          <button id="reset" class="link-button" type="button">Reset</button>
+        </div>
+        <div id="dimension-grid" class="dimension-grid"></div>
+        <div id="warnings" class="warnings"></div>
+        <div id="model-stats" class="model-stats"></div>
+      </section>
+
+      <section class="section downloads">
+        <div class="section-head">
+          <h2>Downloads</h2>
+          <span class="hint">Latest model</span>
+        </div>
+        <div class="download-grid">
+          <a id="download-stl" class="download-card" href="#" aria-disabled="true" download="lakeland-60mm-fondant-cutter.stl">
+            <span class="download-badge">STL</span>
+            <span class="download-text"><strong>Print-ready STL</strong><small>Flange-down orientation</small></span>
+            <span class="download-arrow">&darr;</span>
+          </a>
+          <a id="download-3mf" class="download-card" href="#" aria-disabled="true" download="lakeland-60mm-fondant-cutter.3mf">
+            <span class="download-badge">3MF</span>
+            <span class="download-text"><strong>Bambu 3MF</strong><small>Model-only; slice in Bambu Studio</small></span>
+            <span class="download-arrow">&darr;</span>
+          </a>
+        </div>
+        <p class="footnote">Downloads refresh after the model updates. The 3MF is model-only; use the same nozzle in Bambu Studio.</p>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Parameters</h2>
+          <span class="hint">Auto-updates after a pause</span>
+        </div>
+        <div id="parameters"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Logo placement</h2>
+          <div class="head-actions">
+            <button id="iso-view" class="link-button" type="button">Iso</button>
+            <button id="top-view" class="link-button" type="button">Top</button>
+            <button id="rear-view" class="link-button" type="button">Rear</button>
+            <button id="center-logo" class="link-button" type="button">Center</button>
+          </div>
+        </div>
+        <div id="logo-placement"></div>
+        <p class="hint">Auto offset centres the visual mass; uncheck to fine-tune X/Y. Rotation follows the print view.</p>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Parts</h2>
+          <span class="hint">Visibility / color</span>
+        </div>
+        <div id="parts"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Exploded view</h2>
+          <output id="explode-value">0 mm</output>
+        </div>
+        <input id="explode" class="range" type="range" min="0" max="15" step="1" value="0">
+      </section>
+
+      <section class="section actions">
+        <button id="regenerate" class="button primary" type="button">Regenerate model</button>
+        <p class="footnote">The 3D view and downloads update automatically after a short pause. Use Regenerate to force an update.</p>
+      </section>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
