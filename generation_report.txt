@@ -1,0 +1,46 @@
+dxf: /Users/rayfoo/Desktop/Logo Cookie Cutter/source/Lakeland - Transparent (1).dxf
+cut_diameter_mm: 60.0
+outer_diameter_mm: 71.6
+height_mm: 18.0
+wall_mm: 1.8
+flange_width_mm: 4.0
+plate_bottom_mm: 10.0
+plate_top_mm: 12.0
+feature_top_mm: 10.2
+emboss_bird_mm: 1.5
+emboss_green_mm: 1.0
+emboss_lime_mm: 0.5
+watertight_design: True
+watertight_print: True
+winding_consistent_design: True
+winding_consistent_print: True
+volume_mm3: 19844.087623989566
+bounds_design_mm:
+  [-35.79999923706055, -35.79999923706055, 0.0]
+  [35.79999923706055, 35.79999923706055, 18.0]
+bounds_print_mm:
+  [-35.79999923706055, -35.79999923706055, 0.0]
+  [35.79999923706055, 35.79999923706055, 18.000000000000007]
+vertices: 2935
+faces: 5874
+regions:
+  emblem_polylines: 17
+  bird_area_dxf: 4553.181710762498
+  details_area_dxf: 325.46745305231997
+  green_area_dxf: 1768.20913620797
+  lime_area_dxf: 1933.8805449301653
+  dxf_bbox_mm: [58.527630389000656, 67.95315606340259, 224.7590928045632, 205.8957130785583]
+  fit_scale: 0.2788142452964551
+  scaled_bbox_mm: [46.34769973792112, 38.46034992844386]
+  bird_face_area_mm2: 328.2960576408715
+  groove_area_mm2: 66.49822350387785
+  green_area_mm2: 137.2935768822188
+  lime_area_mm2: 150.29841558427128
+  bird_bounds_mm: (-23.424707404990052, -15.924585302797766, 23.650522877761865, 19.704160606021713)
+  bird_max_radius_mm: 27.99244933944218
+  ring_clearance_mm: 2.0075506605578184
+files:
+  stl_design: /Users/rayfoo/Desktop/Logo Cookie Cutter/lakeland_60mm_fondant_cutter.stl
+  stl_print: /Users/rayfoo/Desktop/Logo Cookie Cutter/lakeland_60mm_fondant_cutter_print.stl
+  3mf_print: /Users/rayfoo/Desktop/Logo Cookie Cutter/lakeland_60mm_fondant_cutter_print.3mf
+  preview: /Users/rayfoo/Desktop/Logo Cookie Cutter/preview.png
